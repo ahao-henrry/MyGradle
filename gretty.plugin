@@ -1,0 +1,22 @@
+buildscript { 
+    repositories { 
+        jcenter() 
+    } 
+    dependencies { 
+        classpath 'org.akhikhl.gretty:gretty:+' 
+    } 
+} 
+//apply plugin: 'org.akhikhl.gretty'
+if (!project.plugins.findPlugin(org.akhikhl.gretty.GrettyPlugin))
+    project.apply(plugin: org.akhikhl.gretty.GrettyPlugin)
+  
+// 配置gretty
+gretty {
+    httpPort = 8888
+    //contextPath =""
+    //servletContainer = 'tomcat8'
+    debugPort = 5005      // default
+    debugSuspend = true   // default
+    httpsEnabled = true
+    httpsPort = 4430
+}
