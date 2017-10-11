@@ -9,19 +9,10 @@
 // Apply the java-library plugin to add support for Java Library
 // apply plugin: 'java-library'
 // apply plugin: 'eclipse-wtp'
+// apply plugin: 'application'
 apply plugin: 'java'
-//apply plugin: 'application'
-//apply plugin: 'war'
-//使用gretty插件来运行服务
-buildscript { 
-    repositories { 
-        jcenter() 
-    } 
-    dependencies { 
-        classpath 'org.akhikhl.gretty:gretty:+' 
-    } 
-} 
-apply plugin: 'org.akhikhl.gretty'
+apply plugin: 'war'
+apply from: 'gretty.plugin'
 
 sourceCompatibility = 1.7   // 设置 JDK 版本
 compileJava.options.encoding = 'UTF-8'  //设置字符集
@@ -55,3 +46,4 @@ jar {
         attributes 'Main-Class': 'com.ahao.mygradle.appmain.AppMain '
     } 
 }
+
